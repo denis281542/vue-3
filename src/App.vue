@@ -19,8 +19,8 @@ export default {
   components: {
     AddRecipe, 
     RecipeList, 
-    RecipeDetail
-  },
+    RecipeDetail 
+  }, 
   data() {
     return {
       recipes: [],

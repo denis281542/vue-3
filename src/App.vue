@@ -17,8 +17,8 @@ import RecipeList from '@/components/RecipeList'
 export default {
   name: 'app',
   components: {
-    AddRecipe,
-    RecipeList,
+    AddRecipe, 
+    RecipeList, 
     RecipeDetail
   },
   data() {

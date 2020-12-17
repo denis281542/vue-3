@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <AddRecipe />
+    <AddRecipe :onAdd="AddRecipe" />
 
     <div class="columns">
-      <RecipeList />
-      <RecipeDetail />
+      <RecipeList @select="selectRecipe" :recipes="recipes" />
+      <RecipeDetail :recipe="current" @remove="removeRecipe"/>
     </div>
   </div>
 </template>
@@ -20,6 +20,24 @@ export default {
     AddRecipe,
     RecipeList,
     RecipeDetail
+  },
+  data() {
+    return {
+      recipes: [],
+      current: null
+    }
+  },
+  methods: {
+    AddRecipe(recipe) {
+      this.recipes.push(recipe)
+    },
+    selectRecipe(id) {
+      this.current = this.recipes.find(r => r.id === id)
+    },
+    removeRecipe(id) {
+      this.current = null
+      this.recipes = this.recipes.filter(r => r.id !== id)
+    }
   }
 }
 </script>
